@@ -19,7 +19,9 @@ var Channels = require('pipe-channels');
 var server = Channels.createServer();
 
 // listen for new channel requests:
+
 server.on('request', function(request) {
+
   // request.payload has arbitrary values passed in by client
   if (request.payload.token == 'this is a token') {
     var channel = request.grant(); // channel is an object stream
@@ -38,8 +40,10 @@ stream.pipe(server).pipe(stream);
 ```js
 var client = require('pipe-channels').createClient();
 
-// ask for a channel, passing in any arbitrary payload:
 var payload = { token: 'this is a token'};
+
+// ask for a channel, passing in any arbitrary payload:
+
 client.channel(payload, function(err, channel) {
   if (err) {
     console.error('could not get a channel because', err.message);
