@@ -13,7 +13,7 @@ $ npm install pipe-channels --save
 
 ## Server
 
-```
+```js
 var Channels = require('pipe-channels');
 
 var server = Channels.createServer();
