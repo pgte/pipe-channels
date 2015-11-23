@@ -4,7 +4,7 @@
   "description": "Node channels negotiation",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover -- lab -vl && istanbul check-coverage"
+    "test": "node --harmony node_modules/istanbul/lib/cli.js cover -- lab -vl && istanbul check-coverage"
   },
   "repository": {
     "type": "git",
