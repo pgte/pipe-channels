@@ -1,0 +1,5 @@
+instrumentation:
+    excludes: ['test']
+check:
+    global:
+        lines: 100
