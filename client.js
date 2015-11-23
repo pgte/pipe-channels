@@ -1,18 +1,11 @@
 var debug = require('debug')('pipe-channels:client');
-var extend = require('xtend');
 var MuxDemux = require('mux-demux');
 var timers = require('timers');
 
 module.exports = createClient;
 
-var defaultOptions = {
-  channelWaitTimeout: 5000,
-};
-
-function createClient(_options) {
-  var options = extend({}, defaultOptions, _options);
+function createClient() {
   var waitingChannels = {};
-  var pendingAttributionChannels = {};
 
   var stream = MuxDemux();
   stream.channel = channel;
@@ -38,13 +31,13 @@ function createClient(_options) {
     }
   }
 
-  function onConnection(stream) {
-    debug('got connection %j', stream.meta);
-    var cb = waitingChannels[stream.meta];
+  function onConnection(conn) {
+    debug('got connection %j', conn.meta);
+    var cb = waitingChannels[conn.meta];
     if (cb) {
-      debug('have callback for channel %j', stream.meta);
-      delete waitingChannels[stream.meta];
-      timers.setImmediate(cb, null, stream);
+      debug('have callback for channel %j', conn.meta);
+      delete waitingChannels[conn.meta];
+      timers.setImmediate(cb, null, conn);
     }
   }
 
@@ -52,4 +45,4 @@ function createClient(_options) {
     debug('waiting for channel %j', id);
     waitingChannels[id] = cb;
   }
-};
+}
