@@ -1,7 +1,7 @@
 # pipe-channels
 
 [![By](https://img.shields.io/badge/made%20by-yld!-32bbee.svg?style=flat)](http://yld.io/contact?source=github-pipe-channels)
-[![Build Status](https://secure.travis-ci.org/pgte/pipe-channels.svg?branch=master)](http://travis-ci.org/pgte/nock?branch=master)
+[![Build Status](https://secure.travis-ci.org/pgte/pipe-channels.svg?branch=master)](http://travis-ci.org/pgte/pipe-channels?branch=master)
 
 Channels as streams inside a stream, negotiated.
 
