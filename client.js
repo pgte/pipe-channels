@@ -1,5 +1,6 @@
 var debug = require('debug')('pipe-channels:client');
 var MuxDemux = require('mux-demux');
+require("setimmediate");
 
 module.exports = createClient;
 

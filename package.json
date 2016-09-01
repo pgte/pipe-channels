@@ -28,7 +28,8 @@
     "cuid": "^1.3.8",
     "debug": "^2.2.0",
     "istanbul": "^0.4.0",
-    "mux-demux": "^3.7.9"
+    "mux-demux": "^3.7.9",
+    "setImmediate": "1.0.4"
   },
   "devDependencies": {
     "code": "^2.0.1",
