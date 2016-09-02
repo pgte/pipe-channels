@@ -1,6 +1,6 @@
 var debug = require('debug')('pipe-channels:client');
 var MuxDemux = require('mux-demux');
-var timers = require('timers');
+require("setimmediate");
 
 module.exports = createClient;
 
@@ -37,7 +37,7 @@ function createClient() {
     if (cb) {
       debug('have callback for channel %j', conn.meta);
       delete waitingChannels[conn.meta];
-      timers.setImmediate(cb, null, conn);
+      setImmediate(cb, null, conn);
     }
   }
 
